@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add User – My Ad Admin</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="admin-page">
+    <div class="admin-container">
+      <h1>Add New User</h1>
+      <p class="subtitle">
+        Create accounts for students, staff, or other admins.
+      </p>
+
+      <form id="addUserForm" class="card" style="max-width: 500px">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Full Name" required />
+
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="Email Address" required />
+
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Set Password"
+          required
+        />
+
+        <label>Role</label>
+        <select id="role" required>
+          <option value="">-- Select Role --</option>
+          <option value="student">Student</option>
+          <option value="staff">Staff</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Create User</button>
+      </form>
+
+      <p id="message" class="alert" style="display: none"></p>
+
+      <a href="admin-dashboard.html" class="back-home">← Back to Dashboard</a>
+    </div>
+
+    <script>
+      const form = document.getElementById('addUserForm');
+      const message = document.getElementById('message');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const role = document.getElementById('role').value;
+
+        if (!name || !email || !password || !role) {
+          showMessage('Please fill all fields', 'error');
+          return;
+        }
+
+        // Retrieve existing users from localStorage
+        let users = JSON.parse(localStorage.getItem('myad_users')) || [];
+
+        // Check if user already exists
+        const exists = users.some(user => user.email === email);
+        if (exists) {
+          showMessage('User with this email already exists!', 'error');
+          return;
+        }
+
+        // Add new user
+        users.push({ name, email, password, role });
+        localStorage.setItem('myad_users', JSON.stringify(users));
+
+        form.reset();
+        showMessage(✅ ${role.toUpperCase()} account created successfully!, 'success');
+      });
+
+      function showMessage(text, type) {
+        message.style.display = 'block';
+        message.textContent = text;
+        message.className = type === 'success' ? 'alert alert-success' : 'alert alert-error';
+      }
+    </script>
+  </body>
+</html>

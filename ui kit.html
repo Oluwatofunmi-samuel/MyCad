@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Ad UI Kit</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 40px;
+        background-color: red;
+      }
+      section {
+        margin-bottom: 60px;
+      }
+      h2 {
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+      /* ===== CARDS ===== */
+      .card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+      }
+      .card h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      /* ===== TABLES ===== */
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      .table th,
+      .table td {
+        border: 1px solid #e2e8f0;
+        padding: 12px;
+        text-align: left;
+      }
+      .table th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .table tr:hover {
+        background-color: #f9fafb;
+      }
+
+      /* ===== ALERTS ===== */
+      .alert {
+        padding: 12px 18px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+      .alert-success {
+        background-color: #d1fae5;
+        color: #065f46;
+      }
+      .alert-warning {
+        background-color: #fef3c7;
+        color: #92400e;
+      }
+      .alert-error {
+        background-color: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* ===== FORMS ===== */
+      form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+      }
+      form input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎨 My Ad UI Components</h1>
+
+    <!-- Buttons -->
+    <section id="buttons">
+      <h2>Buttons</h2>
+      <a href="#" class="btn btn-primary">Primary Button</a>
+      <a href="#" class="btn btn-secondary">Secondary Button</a>
+      <a href="#" class="btn btn-outline">Outline Button</a>
+    </section>
+
+    <!-- Cards -->
+    <section id="cards">
+      <h2>Cards</h2>
+      <div class="card" style="width: 300px">
+        <h3>Card Title</h3>
+        <p>This is a card component used for dashboards or content boxes.</p>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms">
+      <h2>Forms</h2>
+      <form style="max-width: 350px">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Tables -->
+    <section id="tables">
+      <h2>Tables</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bolu Onanuga</td>
+            <td>SS2</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>Ade John</td>
+            <td>JSS3</td>
+            <td>Inactive</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Alerts -->
+    <section id="alerts">
+      <h2>Alerts</h2>
+      <div class="alert alert-success">✅ Success Alert – Action Completed</div>
+      <div class="alert alert-warning">⚠ Warning Alert – Check Details</div>
+      <div class="alert alert-error">❌ Error Alert – Something Went Wrong</div>
+    </section>
+  </body>
+</html>
